@@ -97,12 +97,14 @@
   font-size: 1.8rem;
   line-height: 2rem;
   opacity: 0;
-  transition: opacity ease-in-out 0.3s;
+  transform: translateX(50%);
+  transition: opacity ease-in-out 0.3s, transform ease-out 0.3s;
   transition-delay: 0.4s;
 
   .swiper-slide-next &,
   .swiper-slide-active & {
     opacity: 1;
+    transform: translateX(0);
   }
 
   @media (min-width: $stop-scaling) {

@@ -97,11 +97,11 @@
   transition: all ease-in 0.3s;
   transition-delay: 1s;
   opacity: 0;
-  top: 20px;
+  transform: translateY(2rem);
 
   .active & {
     opacity: 1;
-    top: 0;
+    transform: translateY(0);
   }
 
   @media (min-width: $stop-scaling) {

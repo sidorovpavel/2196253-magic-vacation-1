@@ -249,9 +249,11 @@
       bottom: 0;
       height: 2px;
       background-color: $c-light;
-      width: 0;
+      width: 100%;
+      transform: scaleX(0);
+      transform-origin: right;
       right: 0;
-      transition: width 0.2s linear;
+      transition: transform 0.2s linear;
 
       @media (max-width: $tablet) and (orientation: portrait) {
         left: 0;
@@ -278,10 +280,8 @@
       outline: none;
 
       &::after {
-        display: block;
-        width: 100%;
-        left: 0;
-        right: unset;
+        transform: scaleX(1);
+        transform-origin: left;
         opacity: 1;
         background-color: $c-purple;
       }

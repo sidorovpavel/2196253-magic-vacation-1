@@ -1,6 +1,6 @@
 export default () => {
   function ready() {
-    document.body.classList.add(`ready`);
+    document.body.classList.add(`dom-loaded`);
   }
 
   document.addEventListener(`DOMContentLoaded`, ready);

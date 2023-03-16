@@ -53,7 +53,7 @@
   transition-timing-function: cubic-bezier(.05,.66,.29,.93);
   opacity: 0;
 
-  .ready & {
+  .dom-loaded & {
     opacity: 1;
     transform: translateY(0);
   }

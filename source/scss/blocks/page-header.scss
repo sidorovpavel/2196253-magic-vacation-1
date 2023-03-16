@@ -42,7 +42,7 @@
   transition-delay: 0.1s;
   transition-timing-function: cubic-bezier(.05,.66,.29,.93);
 
-  .ready & {
+  .dom-loaded & {
     opacity: 1;
     transform: translateY(0);
   }
@@ -148,7 +148,7 @@
   transition-delay: 0.1s;
   transition-timing-function: cubic-bezier(.05,.66,.29,.93);
 
-  .ready & {
+  .dom-loaded & {
     transform: translateX(0);
     opacity: 1;
   }
@@ -166,11 +166,11 @@
     background-color: $c-light;
     transition: none;
 
-    .ready & {
+    .dom-loaded & {
       transform: translateX(-100%);
     }
 
-    .ready .page-header--menu-opened & {
+    .dom-loaded .page-header--menu-opened & {
       transform: translateX(0);
     }
   }
@@ -190,11 +190,11 @@
     overflow-y: auto;
     transition: none;
 
-    .ready & {
+    .dom-loaded & {
       transform: translateX(-100%);
     }
 
-    .ready .page-header--menu-opened & {
+    .dom-loaded .page-header--menu-opened & {
       transform: translateX(0);
     }
   }
@@ -306,7 +306,7 @@
         background-color: $c-light;
         transition: transform 0.3s linear;
 
-        .ready & {
+        .dom-loaded & {
           transform: scaleX(1);
           transition-delay: 0.3s;
         }

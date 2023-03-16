@@ -41,7 +41,7 @@
     transition-delay: 0.4s;
     transform-origin: left top;
 
-    .ready & {
+    .dom-loaded& {
       transform: scale(1) translate(-50%, -50%);
     }
   }

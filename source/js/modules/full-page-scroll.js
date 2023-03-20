@@ -1,15 +1,26 @@
 import throttle from 'lodash/throttle';
 
+const ScreenNumber = {
+  TOP: 0,
+  STORY: 1,
+  PRIZES: 2,
+  RULES: 3,
+  GAME: 4,
+};
+
 export default class FullPageScroll {
   constructor() {
     this.THROTTLE_TIMEOUT = 1000;
+    this.CURTAIN_TIMEOUT = 500;
     this.scrollFlag = true;
     this.timeout = null;
 
     this.screenElements = document.querySelectorAll(`.screen:not(.screen--result)`);
     this.menuElements = document.querySelectorAll(`.page-header__menu .js-menu-link`);
+    this.curtainElement = document.querySelector(`.screen__curtain`);
 
     this.activeScreen = 0;
+    this.prevScreen = 0;
     this.onScrollHandler = this.onScroll.bind(this);
     this.onUrlHashChengedHandler = this.onUrlHashChanged.bind(this);
   }
@@ -40,6 +51,7 @@ export default class FullPageScroll {
   }
 
   onUrlHashChanged() {
+    this.prevScreen = this.activeScreen;
     const newIndex = Array.from(this.screenElements).findIndex((screen) => location.hash.slice(1) === screen.id);
     this.activeScreen = (newIndex < 0) ? 0 : newIndex;
     this.changePageDisplay();
@@ -52,14 +64,25 @@ export default class FullPageScroll {
   }
 
   changeVisibilityDisplay() {
-    this.screenElements.forEach((screen) => {
-      screen.classList.add(`screen--hidden`);
-      screen.classList.remove(`active`);
-    });
-    this.screenElements[this.activeScreen].classList.remove(`screen--hidden`);
+    const isStoryToPrizes = this.prevScreen === ScreenNumber.STORY && this.activeScreen === ScreenNumber.PRIZES;
+    let timeout = 0;
+
+    this.curtainElement.classList.remove(`screen__curtain_active`);
+    if (isStoryToPrizes) {
+      this.curtainElement.classList.add(`screen__curtain_active`);
+      timeout = this.CURTAIN_TIMEOUT;
+    }
+
     setTimeout(() => {
-      this.screenElements[this.activeScreen].classList.add(`active`);
-    }, 100);
+      this.screenElements.forEach((screen) => {
+        screen.classList.add(`screen--hidden`);
+        screen.classList.remove(`active`);
+      });
+      this.screenElements[this.activeScreen].classList.remove(`screen--hidden`);
+      setTimeout(() => {
+        this.screenElements[this.activeScreen].classList.add(`active`);
+      }, 100);
+    }, timeout);
   }
 
   changeActiveMenuItem() {

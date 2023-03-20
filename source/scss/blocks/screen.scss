@@ -313,6 +313,7 @@
 }
 
 .screen--prizes {
+  z-index: 3;
   background-color: $c-dark;
 }
 
@@ -365,3 +366,24 @@
 .screen--rules {
   background-color: $c-dark;
 }
+
+.screen__curtain {
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: $c-dark;
+  transform: scaleY(0);
+  transform-origin: bottom;
+
+  &.screen__curtain_active {
+    z-index: 2;
+    transform: scaleY(1);
+    transition: transform 0.3s ease-in-out;
+    opacity: 1;
+  }
+}
+

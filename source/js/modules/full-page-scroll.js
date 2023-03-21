@@ -11,7 +11,7 @@ const ScreenNumber = {
 export default class FullPageScroll {
   constructor() {
     this.THROTTLE_TIMEOUT = 1000;
-    this.CURTAIN_TIMEOUT = 500;
+    this.CURTAIN_TIMEOUT = 300;
     this.scrollFlag = true;
     this.timeout = null;
 

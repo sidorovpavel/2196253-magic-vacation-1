@@ -1,4 +1,5 @@
 import throttle from 'lodash/throttle';
+import AnimatedText from "./animated-text";
 
 const ScreenNumber = {
   TOP: 0,
@@ -29,6 +30,7 @@ export default class FullPageScroll {
     document.addEventListener(`wheel`, throttle(this.onScrollHandler, this.THROTTLE_TIMEOUT, {trailing: true}));
     window.addEventListener(`popstate`, this.onUrlHashChengedHandler);
 
+    this.addAnimationText();
     this.onUrlHashChanged();
   }
 
@@ -111,5 +113,19 @@ export default class FullPageScroll {
     } else {
       this.activeScreen = Math.max(0, --this.activeScreen);
     }
+  }
+
+  addAnimationText() {
+    const items = document.querySelectorAll(`.animated-text`);
+    Array.from(items).forEach((item, index) =>
+      new AnimatedText(
+          item,
+          500,
+          `.active`,
+          `transform`,
+          100 * index
+      )
+    );
+
   }
 }

@@ -1,0 +1,31 @@
+.animated-text {
+  > span {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    margin-top: -2rem;
+
+    &:not(:first-child) {
+      margin-top: -5rem;
+    }
+
+    span {
+      display: inline-block;
+      opacity: 0;
+      will-change: transform;
+      transform: translateY(100%);
+      padding-top: 2rem;
+
+      &:last-child {
+        padding-right: 2rem;
+      }
+    }
+  }
+
+  .active & {
+    span {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}

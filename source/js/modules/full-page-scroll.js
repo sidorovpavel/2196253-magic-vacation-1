@@ -60,9 +60,24 @@ export default class FullPageScroll {
   }
 
   changePageDisplay() {
+    this.changeTransitionsForDisclaimer();
     this.changeVisibilityDisplay();
     this.changeActiveMenuItem();
     this.emitChangeDisplayEvent();
+  }
+
+
+  changeTransitionsForDisclaimer() {
+    if (this.prevScreen === ScreenNumber.PRIZES && this.activeScreen === ScreenNumber.RULES) {
+      const disclaimerPrizes = document.querySelector(`.screen--prizes .js-footer`);
+      const disclaimerRules = document.querySelector(`.screen--rules .screen__disclaimer`);
+      disclaimerPrizes.classList.add(`no-transform`);
+      disclaimerRules.classList.add(`no-transform`);
+      setTimeout(() => {
+        disclaimerPrizes.classList.remove(`no-transform`);
+        disclaimerRules.classList.remove(`no-transform`);
+      }, 600);
+    }
   }
 
   changeVisibilityDisplay() {

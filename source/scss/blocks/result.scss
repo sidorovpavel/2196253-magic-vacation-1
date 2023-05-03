@@ -207,7 +207,11 @@
     margin-left: 1.5rem;
     width: 4rem;
     height: 4rem;
-    color: $c-dark;
+    color: $c-purple-dark;
+
+    .screen--transitioned & {
+      animation: rolling_out_quarter-right $middle-duration ease-out $middle-duration 1 both;
+    }
 
     @media (min-width: $stop-scaling) {
       margin-left: 15px;

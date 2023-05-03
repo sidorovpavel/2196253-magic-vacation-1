@@ -39,8 +39,28 @@ body {
   line-height: 1.1;
   font-weight: 600;
   color: $c-light;
-  background-color: $c-dark;
+  background-color: $c-purple-dark;
   overflow: hidden;
+
+  &.theme-purple {
+    --primary-color: #{$c-purple-dark};
+    --secondary-color: #{$c-purple};
+  }
+
+  &.theme-blue {
+    --primary-color: #{$c-blue};
+    --secondary-color: #{$c-blue-dark};
+  }
+
+  &.theme-blue-dark {
+    --primary-color: #{$c-blue-dark};
+    --secondary-color: #{$c-blue};
+  }
+
+  &.theme-purple-dark {
+    --primary-color: #{$c-purple};
+    --secondary-color: #{$c-purple-dark};
+  }
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

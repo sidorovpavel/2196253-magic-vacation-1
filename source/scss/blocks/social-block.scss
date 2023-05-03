@@ -15,7 +15,7 @@
   display: block;
   width: 4rem;
   height: 4rem;
-  color: $c-dark;
+  color: $c-purple-dark;
   border-radius: 50%;
 
   @media (max-width: $tablet) and (orientation: portrait) {
@@ -187,13 +187,13 @@
 
   @media (max-width: $tablet) and (orientation: portrait) {
     color: $c-light;
-    background-color: $c-dark;
+    background-color: $c-purple-dark;
     opacity: 1;
   }
 
   @media (max-width: $mobile) and (orientation: landscape) {
     color: $c-light;
-    background-color: $c-dark;
+    background-color: $c-purple-dark;
     opacity: 1;
   }
 

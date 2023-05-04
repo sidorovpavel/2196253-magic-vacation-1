@@ -190,7 +190,7 @@
   p {
     margin: 0;
     opacity: 0;
-    animation: fade-in 0.3s forwards;
+    animation: fade-in $standard-duration forwards, to-up $standard-duration forwards;
 
     @media (max-width: $tablet) and (orientation: portrait) {
       min-height: calc(1.4rem * 2.2);

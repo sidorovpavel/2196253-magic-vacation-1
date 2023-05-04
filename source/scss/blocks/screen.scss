@@ -17,6 +17,10 @@
   @media (max-width: $tablet - 1) and (orientation: landscape) {
     height: 100vh;
   }
+
+  .fade-in {
+    animation: fade-in $standard-duration ease-out $standard-duration 1 both;
+  }
 }
 
 .screen__wrapper {
